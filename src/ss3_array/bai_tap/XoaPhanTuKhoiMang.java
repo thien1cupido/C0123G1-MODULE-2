@@ -24,6 +24,7 @@ public class XoaPhanTuKhoiMang {
                     numbers[k] = numbers[k + 1];
                 }
                 numbers[numbers.length-1]=0;
+                j--;
             }
         }
         for (int number : numbers) {
