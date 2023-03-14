@@ -6,6 +6,7 @@ public class CacLoaiHinh {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int menu;
+        boolean flag=true;
         System.out.println("1.Hình chữ nhật " +
                 "\n2.Hình tam giác đứng " +
                 "\n3.Hình tam giác ngược" +
@@ -45,10 +46,14 @@ public class CacLoaiHinh {
                     System.out.println("Hình tam giác cân có chiều cao " + c);
                     System.out.println(layHinhTamGiacCan(c));
                     break;
+                case 5:
+                    System.out.println("Thoát");
+                    flag=false;
+                    break;
                 default:
+                    System.out.println("Nhập lại");
             }
-        } while (menu < 5);
-        System.out.println("Thoát");
+        } while (flag);
     }
 
     public static String layHinhChuNhat(int number1, int number2) {
