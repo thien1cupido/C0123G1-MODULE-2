@@ -1,17 +1,18 @@
-package ss6_Inheritance.bai_tap.bai_1;
+package ss6_inheritance.bai_tap.bai_1;
 
-public class Cylinder extends Circle{
-    int heigh=2;
+public class Cylinder extends Circle {
+    int heigh = 2;
 
     public Cylinder() {
     }
 
     public Cylinder(int radius, String color, int heigh) {
         super(radius, color);
-        this.heigh=heigh;
+        this.heigh = heigh;
     }
-    public double volumeOfCylinder(){
-        return getCircleArea()*heigh;
+
+    public double volumeOfCylinder() {
+        return getCircleArea() * heigh;
     }
 
     @Override
@@ -21,7 +22,7 @@ public class Cylinder extends Circle{
                 ", radius=" + radius +
                 ", color='" + color + '\'' +
                 ", PI=" + PI +
-                ", thể tích của hình trụ= "+volumeOfCylinder()+ " cm3"+
+                ", thể tích của hình trụ= " + volumeOfCylinder() + " cm3" +
                 '}';
     }
 }

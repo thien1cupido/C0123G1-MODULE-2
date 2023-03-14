@@ -1,9 +1,9 @@
-package ss6_Inheritance.bai_tap.bai_2;
+package ss6_inheritance.bai_tap.bai_2;
 
 import java.util.Arrays;
 
-public class Point3D extends Point2D{
-    float z=0f;
+public class Point3D extends Point2D {
+    float z = 0f;
 
     public Point3D() {
     }
@@ -20,18 +20,19 @@ public class Point3D extends Point2D{
     public void setZ(float z) {
         this.z = z;
     }
-    public void setXYZ(float x,float y,float z){
-        this.x=x;
-        this.y=y;
-        this.z=z;
+
+    public void setXYZ(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     public float[] getXYZ() {
-      float []getXYZ =new float[3];
-      getXYZ[0]=this.x;
-      getXYZ[1]=this.y;
-      getXYZ[2]=this.z;
-      return getXYZ;
+        float[] getXYZ = new float[3];
+        getXYZ[0] = this.x;
+        getXYZ[1] = this.y;
+        getXYZ[2] = this.z;
+        return getXYZ;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class Point3D extends Point2D{
                 ", x= " + x +
                 ", y= " + y +
                 "z= " + z +
-                ", XYZ= "+ Arrays.toString(getXYZ()) +
+                ", XYZ= " + Arrays.toString(getXYZ()) +
                 '}';
     }
 }

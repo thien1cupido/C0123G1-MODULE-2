@@ -1,9 +1,9 @@
-package ss6_Inheritance.bai_tap.bai_1;
+package ss6_inheritance.bai_tap.bai_1;
 
 public class Circle {
     protected int radius;
     protected String color;
-    final protected double PI=3.14;
+    final protected double PI = 3.14;
 
     public Circle() {
     }
@@ -16,6 +16,7 @@ public class Circle {
     public double getPI() {
         return PI;
     }
+
     public int getRadius() {
         return radius;
     }
@@ -31,8 +32,9 @@ public class Circle {
     public void setColor(String color) {
         this.color = color;
     }
-    public double getCircleArea(){
-        return this.PI*Math.pow(this.radius,2);
+
+    public double getCircleArea() {
+        return this.PI * Math.pow(this.radius, 2);
     }
 
     @Override
