@@ -1,10 +1,10 @@
-package ss6_Inheritance.bai_tap.bai_3;
+package ss6_inheritance.bai_tap.bai_3;
 
 import java.util.Arrays;
 
 public class Point2D {
-    protected float x= 0f;
-    protected float y= 0f;
+    protected float x = 0f;
+    protected float y = 0f;
 
     public Point2D() {
     }
@@ -29,15 +29,17 @@ public class Point2D {
     public void setY(float y) {
         this.y = y;
     }
-    public void setXY(float x,float y){
-        this.x=x;
-        this.y=y;
+
+    public void setXY(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
-    public float[] getXY(){
-        float[] getXY =new float[2];
-        getXY[0]=this.x;
-        getXY[1]=this.y;
-     return getXY;
+
+    public float[] getXY() {
+        float[] getXY = new float[2];
+        getXY[0] = this.x;
+        getXY[1] = this.y;
+        return getXY;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class Point2D {
         return "Point2D{" +
                 "x= " + x +
                 ", y= " + y +
-                ", XY= "+ Arrays.toString(getXY()) +
+                ", XY= " + Arrays.toString(getXY()) +
                 '}';
     }
 }
