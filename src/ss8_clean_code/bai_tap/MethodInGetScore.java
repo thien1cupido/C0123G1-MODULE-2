@@ -1,7 +1,7 @@
 package ss8_clean_code.bai_tap;
 
-public class ServiceTennisGame implements IServiceTennisGame {
-    @Override
+public class MethodInGetScore {
+
     public String getScore1EqualScore2(int score1) {
         String score = "";
         switch (score1) {
@@ -24,7 +24,6 @@ public class ServiceTennisGame implements IServiceTennisGame {
         return score;
     }
 
-    @Override
     public String getScoreMoreOrEqual4(int score1, int score2) {
         int minusResult = score1 - score2;
         String score = "";
@@ -40,7 +39,6 @@ public class ServiceTennisGame implements IServiceTennisGame {
         return score;
     }
 
-    @Override
     public String getRemainingScore(int score1, int score2) {
         int tempScore = 0;
         String score = "";

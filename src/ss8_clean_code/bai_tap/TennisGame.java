@@ -4,7 +4,7 @@ public class TennisGame {
 
     public static String getScore(String namePlayer1, String namePlayer2, int score1, int score2) {
         String score = "";
-        ServiceTennisGame serviceTennisGame = new ServiceTennisGame();
+        MethodInGetScore serviceTennisGame = new MethodInGetScore();
         if (score1 == score2) {
             score = serviceTennisGame.getScore1EqualScore2(score1);
         } else if (score1 >= 4 || score2 >= 4) {
