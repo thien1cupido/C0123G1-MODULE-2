@@ -13,9 +13,10 @@ public class StudentService implements IPersonService {
         students.add(new Student(0, "Nguyễn Trung Thiện", "15/7/1999", "nam", "C0123G1", 7.5f));
     }
 
+    Scanner scanner = new Scanner(System.in);
+
     @Override
     public void add() {
-        Scanner scanner = new Scanner(System.in);
         boolean flag;
         int count = 0;
         int id;
@@ -61,7 +62,6 @@ public class StudentService implements IPersonService {
 
     @Override
     public void delect() {
-        Scanner scanner = new Scanner(System.in);
         boolean flag;
         int id;
         do {
