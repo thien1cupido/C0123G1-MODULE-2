@@ -4,7 +4,6 @@ import ss12_map_tree.bai_tap.bai_1.model.Product;
 import ss12_map_tree.bai_tap.bai_1.service.IServiceProduct;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class ServiceProduct implements IServiceProduct {

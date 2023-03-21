@@ -6,7 +6,7 @@ import lam_them.service.imp.StudentService;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static void Display() {
+    public static void display() {
         Scanner scanner = new Scanner(System.in);
         int menu;
         boolean flag;
