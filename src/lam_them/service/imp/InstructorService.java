@@ -42,6 +42,10 @@ public class InstructorService implements IPersonService {
     @Override
     public void display() {
         if (instructors.size() > 0) {
+            System.out.println("---------------Danh sách sinh viên-----------------");
+            System.out.println("-+-----+--------------------+-------------+--------");
+            System.out.println(" |  ID |       Tên          |     Tuổi    |    Lớp ");
+            System.out.println("-+-----+--------------------+-------------+--------");
             for (Instructor instructor : instructors) {
                 System.out.println(instructor);
             }
