@@ -10,10 +10,10 @@ public class InstructorService implements IPersonService {
     static ArrayList<Instructor> instructors = new ArrayList<>();
 
     static {
-        instructors.add(new Instructor(0, "Nguyễn Văn A", "23/4/1995", "nam", "ngôn ngữ C#"));
+        instructors.add(new Instructor(0, "Nguyễn Văn A", 23, "nam", "ngôn ngữ C#"));
     }
 
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     @Override
     public void add() {
@@ -30,7 +30,7 @@ public class InstructorService implements IPersonService {
             System.out.print("Nhập tên: ");
             String name = scanner.nextLine();
             System.out.print("Nhập ngày sinh: ");
-            String birthOfDay = scanner.nextLine();
+            int birthOfDay = Integer.parseInt(scanner.nextLine());
             System.out.print("Nhập giới tính: ");
             String gender = scanner.nextLine();
             System.out.println("Nhập chuyên môn: ");
@@ -42,13 +42,15 @@ public class InstructorService implements IPersonService {
     @Override
     public void display() {
         if (instructors.size() > 0) {
-            System.out.println("---------------Danh sách sinh viên-----------------");
-            System.out.println("-+-----+--------------------+-------------+--------");
-            System.out.println(" |  ID |       Tên          |     Tuổi    |    Lớp ");
-            System.out.println("-+-----+--------------------+-------------+--------");
+            System.out.println("------------------------Danh sách giảng viên------------------------");
+            System.out.println("-+------+--------------------+--------+-------------+-------------+-");
+            System.out.println(" |  ID  |       Tên          |  Tuổi  |  Giới tính  | Chuyên môn  | ");
+            System.out.println("-+------+--------------------+--------+-------------+-------------+-");
             for (Instructor instructor : instructors) {
-                System.out.println(instructor);
+                System.out.printf(" |  %2d  |%18s  |   %2s   |     %3s    | %11s |\n", instructor.getId(),
+                        instructor.getName(), instructor.getBirthOfDay(), instructor.getGender(), instructor.getSpecialize());
             }
+            System.out.println("-+------+--------------------+--------+-------------+-------------+-");
         } else {
             System.out.println("Không có ai ở trong danh sách");
         }
@@ -67,14 +69,13 @@ public class InstructorService implements IPersonService {
                     System.out.println("Bạn có muốn xóa học sinh '" + instructor.getName() + "' không");
                     System.out.print("Nhập 'có' hoặc 'không' để xác nhận: ");
                     String choose = scanner.nextLine();
+                    flag = true;
                     switch (choose) {
                         case "có":
                             instructors.remove(instructor);
                             System.out.println("Đã xóa học sinh có ID là " + id + " khỏi danh sách.");
-                            flag = true;
                             break;
                         case "không":
-                            flag = true;
                             break;
                         default:
                             System.out.println("Lựa chọn không hợp lệ.");

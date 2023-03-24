@@ -1,17 +1,14 @@
 package ss16_io_text.bai_tap.bai_1;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CopyFileText {
     public static void main(String[] args) {
         System.out.println("Chương trình coppy file");
         System.out.print("Nhập đường dẫn mà file cần coppy: ");
-        Scanner scanner=new Scanner(System.in);
-        String filePath=scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String filePath = scanner.nextLine();
         writeToFile(readFromFile(filePath));
     }
 
@@ -23,9 +20,7 @@ public class CopyFileText {
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             while ((line = br.readLine()) != null) {
-                for (int i = 0; i < listString.size(); i++) {
-                    listString.add(String.valueOf(line.charAt(i)));
-                }
+                Collections.addAll(listString, line.split(""));
             }
             fr.close();
         } catch (IOException e) {
@@ -36,18 +31,20 @@ public class CopyFileText {
 
     public static void writeToFile(List<String> arr) {
         try {
-            File file = new File("src\\ss16_io_text\\bai_tap\\coppied_text1");
+            File file = new File("src\\ss16_io_text\\bai_tap\\bai_1\\coppy_file.csv");
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter wr = new BufferedWriter(writer);
+            String s = "";
             int count = 0;
-            for (String c: arr
-                 ) {
+            for (String c : arr
+            ) {
                 count++;
-                System.out.print(c);
-                wr.write(c);
-                wr.newLine();
+                System.out.print(c + ",");
+                s += c;
             }
-            System.out.println("Có "+count+" kí tự");
+            wr.write(s);
+            wr.newLine();
+            System.out.println("Có " + count + " kí tự");
             wr.close();
             writer.close();
         } catch (IOException e) {
