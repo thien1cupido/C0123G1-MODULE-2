@@ -1,10 +1,7 @@
 package ss16_io_text.bai_tap.bai_1;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CopyFileText {
     public static void main(String[] args) {
@@ -23,9 +20,7 @@ public class CopyFileText {
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             while ((line = br.readLine()) != null) {
-                for (int i = 0; i < listString.size(); i++) {
-                    listString.add(String.valueOf(line.charAt(i)));
-                }
+                Collections.addAll(listString,line.split(""));
             }
             fr.close();
         } catch (IOException e) {
@@ -43,7 +38,7 @@ public class CopyFileText {
             for (String c: arr
                  ) {
                 count++;
-                System.out.print(c);
+                System.out.print(c+",");
                 wr.write(c);
                 wr.newLine();
             }
