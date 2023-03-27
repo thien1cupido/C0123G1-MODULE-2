@@ -10,7 +10,7 @@ public class InstructorService implements IPersonService {
     static ArrayList<Instructor> instructors = new ArrayList<>();
 
     static {
-        instructors.add(new Instructor(0, "Nguyễn Văn A", 23, "nam", "ngôn ngữ C#"));
+//        instructors.add(new Instructor(0, "Nguyễn Văn A", 23, "nam", "ngôn ngữ C#"));
     }
 
     static Scanner scanner = new Scanner(System.in);
@@ -35,7 +35,7 @@ public class InstructorService implements IPersonService {
             String gender = scanner.nextLine();
             System.out.println("Nhập chuyên môn: ");
             String specialize = scanner.nextLine();
-            instructors.add(new Instructor(id, name, birthOfDay, gender, specialize));
+//            instructors.add(new Instructor(id, name, birthOfDay, gender, specialize));
         }
     }
 

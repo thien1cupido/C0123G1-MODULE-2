@@ -12,7 +12,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     static Scanner scanner = new Scanner(System.in);
 
     static {
-        employeeList.add(new Employee("Nguyễn Thị A", "13/6/1997", "Nữ", "1203465142", "0935615765", "nguyenthia@gmail.com", 0, "Cao đẳng", "Lễ Tân", 5));
+//        employeeList.add(new Employee("Nguyễn Thị A", "13/6/1997", "Nữ", "1203465142", "0935615765", "nguyenthia@gmail.com", 0, "Cao đẳng", "Lễ Tân", 5));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 String position = scanner.nextLine();
                 System.out.print("Nhập mức lương của nhân viên: ");
                 int salary = Integer.parseInt(scanner.nextLine());
-                employeeList.add(new Employee(name, birthOfDay, gender, citizenIdentification, phoneNumber, email, employeeCode, level, position, salary));
+//                employeeList.add(new Employee(name, birthOfDay, gender, citizenIdentification, phoneNumber, email, employeeCode, level, position, salary));
                 System.out.println("\n");
             }}catch (NumberFormatException e){
                 System.out.println("Nhập sai vui lòng nhập lại");

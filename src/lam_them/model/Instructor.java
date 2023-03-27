@@ -5,11 +5,11 @@ public class Instructor extends Person {
     public Instructor() {
     }
 
-
-    public Instructor(int id, String name, int birthOfDay, String gender, String specialize) {
-        super(id, name, birthOfDay, gender);
-        this.specialize = specialize;
-    }
+//
+//    public Instructor(int id, String name, int birthOfDay, String gender, String specialize) {
+//        super(id, name, birthOfDay, gender);
+//        this.specialize = specialize;
+//    }
 
     public String getSpecialize() {
         return specialize;
