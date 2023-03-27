@@ -1,0 +1,5 @@
+1,chánh
+2,cao
+3,Hoà
+4,Nhân
+5,Thiện
