@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ReadFile {
     public static void main(String[] args) {
-        final String FILE_PATH = "src\\ss16_io_text\\bai_tap\\bai_2\\contry.txt";
+        final String FILE_PATH = "src\\ss16_io_text\\bai_tap\\bai_2\\contry.csv";
         List<String> list=readFileToString(FILE_PATH);
         for (String s: list
              ) {
