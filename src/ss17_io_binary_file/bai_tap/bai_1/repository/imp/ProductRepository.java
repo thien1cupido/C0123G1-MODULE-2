@@ -10,7 +10,6 @@ import java.util.List;
 public class ProductRepository implements IProductRepository {
     private static final String PATH_FILE = "src\\ss17_io_binary_file\\bai_tap\\bai_1\\data\\data_product.dat";
 
-    //    static  List<Product> productList=new ArrayList<>();
     @Override
     public void add(List<Product> productList1) {
         ReadAndWrite.writeListStudentToFile(PATH_FILE, productList1);
