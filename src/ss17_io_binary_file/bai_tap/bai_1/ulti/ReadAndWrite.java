@@ -8,15 +8,15 @@ import java.util.List;
 
 public class ReadAndWrite {
     public static List<Product> readFileBinary(String pathFile) {
-       List<Product> productList=new ArrayList<>();
-       File file =new File(pathFile);
-       FileInputStream fileInputStream=null;
-       ObjectInputStream objectInputStream=null;
+        List<Product> productList = new ArrayList<>();
+        File file = new File(pathFile);
+        FileInputStream fileInputStream = null;
+        ObjectInputStream objectInputStream = null;
         try {
-            if( file.length()>0){
-                fileInputStream =new FileInputStream(file);
-                objectInputStream=new ObjectInputStream(fileInputStream);
-                productList =(List<Product>)objectInputStream.readObject();
+            if (file.length() > 0) {
+                fileInputStream = new FileInputStream(file);
+                objectInputStream = new ObjectInputStream(fileInputStream);
+                productList = (List<Product>) objectInputStream.readObject();
                 objectInputStream.close();
                 fileInputStream.close();
             }

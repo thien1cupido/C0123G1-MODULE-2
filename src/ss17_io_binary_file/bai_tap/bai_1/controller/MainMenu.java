@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class MainMenu {
     public static void displayStudent() {
-        ProductService productService =new ProductService();
+        ProductService productService = new ProductService();
+        System.out.println("Quản lí sản phẩm");
         Scanner scanner = new Scanner(System.in);
-         String menu;
+        String menu;
         boolean flag;
         do {
             flag = true;

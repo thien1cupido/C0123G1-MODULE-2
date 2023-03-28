@@ -1,4 +1,4 @@
-package case_study.service.imp;
+package case_study.service.impl;
 
 public class ContractService {
 }

@@ -71,7 +71,8 @@ public class Product implements Serializable {
                 ", describe='" + describe + '\'' +
                 '}';
     }
-    public String getInfoToCSV(){
-        return this.id+","+this.name+","+this.price+","+this.manufacturedGoods+","+this.describe;
+
+    public String getInfoToCSV() {
+        return this.id + "," + this.name + "," + this.price + "," + this.manufacturedGoods + "," + this.describe;
     }
 }

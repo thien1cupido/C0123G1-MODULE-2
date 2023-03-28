@@ -1,6 +1,6 @@
 package case_study.model;
 
-public class Customer{
+public class Customer extends Person{
     private int customerCode;
     private String customerType;
     private String address;
@@ -8,12 +8,12 @@ public class Customer{
     public Customer() {
     }
 
-//    public Customer(String name, String birthOfDay, String gender, String citizenIdentification, String phoneNumber, String email, int customerCode, String customerType, String address) {
-//        super(name, birthOfDay, gender, citizenIdentification, phoneNumber, email);
-//        this.customerCode = customerCode;
-//        this.customerType = customerType;
-//        this.address = address;
-//    }
+    public Customer(String name, String birthOfDay, String gender, double citizenIdentification, double phoneNumber, String email, int customerCode, String customerType, String address) {
+        super(name, birthOfDay, gender, citizenIdentification, phoneNumber, email);
+        this.customerCode = customerCode;
+        this.customerType = customerType;
+        this.address = address;
+    }
 
     public int getCustomerCode() {
         return customerCode;
@@ -39,18 +39,23 @@ public class Customer{
         this.address = address;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "CustomerCode='" + customerCode + '\'' +
-//                ", name='" + Name + '\'' +
-//                ", birthOfDay='" + birthOfDay + '\'' +
-//                ", gender='" + gender + '\'' +
-//                ", citizenIdentification='" + citizenIdentification + '\'' +
-//                ", phoneNumber='" + phoneNumber + '\'' +
-//                ", email='" + email + '\'' +
-//                ", customerType='" + customerType + '\'' +
-//                ", address='" + address + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "CustomerCode='" + customerCode + '\'' +
+                ", name='" + name + '\'' +
+                ", birthOfDay='" + birthOfDay + '\'' +
+                ", gender='" + gender + '\'' +
+                ", citizenIdentification='" + citizenIdentification + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", customerType='" + customerType + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    @Override
+    public String getInfoToCSV() {
+        return super.getInfoToCSV();
+    }
 }
