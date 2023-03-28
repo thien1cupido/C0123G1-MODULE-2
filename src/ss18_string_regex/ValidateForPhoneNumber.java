@@ -7,29 +7,23 @@ public class ValidateForPhoneNumber {
         System.out.println("Chương trình kiểm tra SĐT");
         Scanner scanner = new Scanner(System.in);
         boolean flag;
-        double SDT = 0;
+        String SDT;
         do {
-            try {
-                flag = true;
-                System.out.print("Nhập SĐT: ");
-                SDT = Double.parseDouble(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("SĐT không phải là chữ");
-                flag = false;
-            }
+            flag = true;
+            System.out.print("Nhập SĐT: ");
+            SDT = scanner.nextLine();
             if (checkPhoneNumber(SDT)) {
-                flag = false;
                 System.out.println("SĐT hợp lệ");
+                flag = false;
             } else {
                 System.out.println("SĐT không hợp lệ");
             }
         } while (flag);
     }
 
-    public static boolean checkPhoneNumber(double name) {
-        String SDT = String.valueOf(name);
+    public static boolean checkPhoneNumber(String name) {
         String reGex = "^[0-9]{2}0[0-9]{9}$";
-        boolean check = SDT.matches(reGex);
+        boolean check = name.matches(reGex);
         return check;
     }
 }
