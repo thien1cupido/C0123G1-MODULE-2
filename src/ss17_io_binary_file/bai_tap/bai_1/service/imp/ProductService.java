@@ -3,6 +3,7 @@ package ss17_io_binary_file.bai_tap.bai_1.service.imp;
 import ss17_io_binary_file.bai_tap.bai_1.model.Product;
 import ss17_io_binary_file.bai_tap.bai_1.repository.imp.ProductRepository;
 import ss17_io_binary_file.bai_tap.bai_1.service.IProductService;
+import ss17_io_binary_file.bai_tap.bai_1.ulti.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,12 @@ import java.util.Scanner;
 public class ProductService implements IProductService {
     static ProductRepository productRepository = new ProductRepository();
     static Scanner scanner = new Scanner(System.in);
+    private static final String PATH_FILE = "src\\ss17_io_binary_file\\bai_tap\\bai_1\\data\\data_product.dat";
     static List<Product> productList = new ArrayList<>();
+
+    static {
+        productList = ReadAndWrite.readFileBinary(PATH_FILE);
+    }
 
 
     @Override
@@ -32,7 +38,6 @@ public class ProductService implements IProductService {
 
     @Override
     public void display() {
-        List<Product> productList = productRepository.display();
         for (Product p : productList
         ) {
             System.out.println(p);

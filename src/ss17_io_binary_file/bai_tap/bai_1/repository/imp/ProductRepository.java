@@ -9,22 +9,16 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository {
     private static final String PATH_FILE = "src\\ss17_io_binary_file\\bai_tap\\bai_1\\data\\data_product.dat";
+    static List<Product> productList = new ArrayList<>();
 
     @Override
-    public void add(List<Product> productList1) {
-        ReadAndWrite.writeListStudentToFile(PATH_FILE, productList1);
-    }
-
-    @Override
-    public List<Product> display() {
-        List<Product> productList = ReadAndWrite.readFileBinary(PATH_FILE);
-        return productList;
+    public void add(List<Product> productList) {
+        ReadAndWrite.writeListStudentToFile(PATH_FILE, productList);
     }
 
 
     @Override
     public void search(List<Product> productList, String name) {
-        productList = ReadAndWrite.readFileBinary(PATH_FILE);
         boolean flag = true;
         for (Product p : productList) {
             if (name.toLowerCase().equals(p.getName().toLowerCase())) {
