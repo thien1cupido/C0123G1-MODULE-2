@@ -2,7 +2,6 @@ package case_study.repository.impl;
 
 import case_study.model.Employee;
 import case_study.repository.IEmployeeRepository;
-import case_study.service.impl.EmployeeServiceImpl;
 import case_study.util.ReadAndWrite;
 
 import java.util.ArrayList;
@@ -10,13 +9,15 @@ import java.util.List;
 
 
 public class EmployeeRepository implements IEmployeeRepository {
-    private final String PATH_FILE = "src\\case_study\\data\\employee.csv";
-    EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+    private static final String PATH_FILE = "src\\case_study\\data\\employee.csv";
+    static List<String> stringList =new ArrayList<>();
+    static List<Employee> employeeList = new ArrayList<>();
+    static {
+        stringList=ReadAndWrite.readFileToListString(PATH_FILE);
+    }
 
     @Override
     public List<Employee> getAllEmployee() {
-        List<Employee> employeeList = new ArrayList<>();
-        List<String> stringList = ReadAndWrite.readFileToListString(PATH_FILE);
         for (int i = 0; i < stringList.size(); i++) {
             String string = stringList.get(i);
             String[] arr = string.split(",");
@@ -28,7 +29,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void add() {
-        List<Employee> stringList = getAllEmployee();
+//    employeeList.
 //    ReadAndWrite.writeSringToFile(PATH_FILE,stringList,true);
 
     }

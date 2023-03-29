@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     static List<Employee> employeeList = new ArrayList<>();
-    static EmployeeRepository employeeRepository =new EmployeeRepository();
+    static EmployeeRepository employeeRepository = new EmployeeRepository();
+    static Employee employee = new Employee();
     static Scanner scanner = new Scanner(System.in);
 
     static {
@@ -50,9 +51,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     String position = scanner.nextLine();
                     System.out.print("Nhập mức lương của nhân viên: ");
                     String salary = scanner.nextLine();
-                    employeeList.add(new Employee(name, birthOfDay, gender, Double.parseDouble(citizenIdentification), Double.parseDouble(phoneNumber),
-                            email, employeeCode, level, position, Double.parseDouble(salary)));
-//                    employeeRepository.getAllEmployee(employeeList);
+                    employee = new Employee(name, birthOfDay, gender, Double.parseDouble(citizenIdentification), Double.parseDouble(phoneNumber),
+                            email, employeeCode, level, position, Double.parseDouble(salary));
+                    employeeList.add(employee);
                     System.out.println("\n");
                 }
             } catch (NumberFormatException e) {

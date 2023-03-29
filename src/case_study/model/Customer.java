@@ -1,7 +1,7 @@
 package case_study.model;
 
 public class Customer extends Person{
-    private int customerCode;
+    protected int customerCode;
     private String customerType;
     private String address;
 
@@ -13,6 +13,9 @@ public class Customer extends Person{
         this.customerCode = customerCode;
         this.customerType = customerType;
         this.address = address;
+    }
+    public Customer(int customerCode){
+        this.customerCode=customerCode;
     }
 
     public int getCustomerCode() {

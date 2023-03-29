@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWrite {
-    public static void writeSringToFile(String pathFile, String text, boolean append) {
+    public static void writeSringToFile(String pathFile, boolean append) {
         File file = new File(pathFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter(file, append);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(text);
+//            bufferedWriter.write(readFileToListString());
             bufferedWriter.newLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
