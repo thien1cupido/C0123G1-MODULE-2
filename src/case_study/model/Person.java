@@ -4,14 +4,14 @@ public abstract class Person {
     protected String name;
     protected String birthOfDay;
     protected String gender;
-    protected double citizenIdentification;
-    protected double phoneNumber;
+    protected String citizenIdentification;
+    protected String phoneNumber;
     protected String email;
 
     public Person() {
     }
 
-    public Person(String name, String birthOfDay, String gender, double citizenIdentification, double phoneNumber, String email) {
+    public Person(String name, String birthOfDay, String gender, String citizenIdentification, String phoneNumber, String email) {
         this.name = name;
         this.birthOfDay = birthOfDay;
         this.gender = gender;
@@ -44,19 +44,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public double getCitizenIdentification() {
+    public String getCitizenIdentification() {
         return citizenIdentification;
     }
 
-    public void setCitizenIdentification(double citizenIdentification) {
+    public void setCitizenIdentification(String citizenIdentification) {
         this.citizenIdentification = citizenIdentification;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

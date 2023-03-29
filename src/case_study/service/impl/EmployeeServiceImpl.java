@@ -1,5 +1,6 @@
 package case_study.service.impl;
 
+import case_study.data.FuramaData;
 import case_study.model.Employee;
 import case_study.repository.impl.EmployeeRepository;
 import case_study.service.IEmployeeService;
@@ -13,10 +14,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
     static EmployeeRepository employeeRepository = new EmployeeRepository();
     static Employee employee = new Employee();
     static Scanner scanner = new Scanner(System.in);
-
-    static {
-        employeeList.add(new Employee("Nguyễn Thị A", "13/6/1997", "Nữ", 1203465142d, 0935615768d, "nguyenthia@gmail.com", 0, "Cao đẳng", "Lễ Tân", 5));
-    }
 
     @Override
     public void add() {
@@ -45,16 +42,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     String phoneNumber = scanner.nextLine();
                     System.out.print("Nhập email của nhân viên: ");
                     String email = scanner.nextLine();
-                    System.out.print("Nhập trình độ của nhân viên: ");
-                    String level = scanner.nextLine();
-                    System.out.print("Nhập vị trí làm việc của nhân viên: ");
-                    String position = scanner.nextLine();
+                    String level = FuramaData.getLevel();
+                    String position = FuramaData.getPositionl();
                     System.out.print("Nhập mức lương của nhân viên: ");
                     String salary = scanner.nextLine();
-                    employee = new Employee(name, birthOfDay, gender, Double.parseDouble(citizenIdentification), Double.parseDouble(phoneNumber),
+                    employee = new Employee(name, birthOfDay, gender, citizenIdentification, phoneNumber,
                             email, employeeCode, level, position, Double.parseDouble(salary));
                     employeeList.add(employee);
                     System.out.println("\n");
+                    employeeRepository.add(employeeList);
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Nhập sai vui lòng nhập lại");
