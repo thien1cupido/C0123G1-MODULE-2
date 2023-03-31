@@ -17,6 +17,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     static IEmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     static Employee employee = new Employee();
     static Scanner scanner = new Scanner(System.in);
+
     static {
         employeeList = ReadAndWriteEmployee.readFileEmployee(PATH_FILE);
     }
@@ -69,7 +70,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void display() {
-        List<Employee> employeeList1=employeeRepository.display();
+        List<Employee> employeeList1 = employeeRepository.display();
         if (!employeeList1.isEmpty()) {
             for (Employee e : employeeList1
             ) {
@@ -85,15 +86,18 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag;
         int id;
         do {
-            flag = false;
+            flag = true;
             System.out.print("Nhập id muốn sửa: ");
             id = Integer.parseInt(scanner.nextLine());
             for (int i = 0; i < employeeList.size(); i++) {
-                if (id > employeeList.size()) {
-                    System.out.println("Mời nhập lại");
-                    flag = true;
+                if (id == employeeList.get(i).getEmployeeCode()) {
+                    flag = false;
                     break;
                 }
+            }
+            if (flag) {
+                System.out.println("Mời nhập lại");
+                flag = true;
             }
         } while (flag);
         for (int i = 0; i < employeeList.size(); i++) {
