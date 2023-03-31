@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IEmployeeRepository {
     void add(List<Employee> employeeList);
-    void display();
-    void edit();
+
+    List<Employee> display();
+
+    void edit(List<Employee> employeeList);
 }

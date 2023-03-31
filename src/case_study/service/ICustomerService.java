@@ -6,4 +6,6 @@ public interface ICustomerService extends IService{
 
     @Override
     void display();
+
+    void edit();
 }

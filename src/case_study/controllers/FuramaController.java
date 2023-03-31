@@ -1,12 +1,18 @@
 package case_study.controllers;
 
+import case_study.service.ICustomerService;
+import case_study.service.IEmployeeService;
+import case_study.service.impl.CustomerServiceImpl;
 import case_study.service.impl.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
+    static IEmployeeService employeeService = new EmployeeServiceImpl();
+    static ICustomerService customerService = new CustomerServiceImpl();
     static String choose;
+
     public static void displayMainMenu() {
         boolean flag;
         do {
@@ -54,7 +60,6 @@ public class FuramaController {
 
     public static void displayEmployeeManagement() {
         boolean flag;
-        EmployeeServiceImpl employeeService =new EmployeeServiceImpl();
         do {
             flag = true;
             System.out.print("Lựa chọn các chức năng:\n" +
@@ -76,7 +81,7 @@ public class FuramaController {
                     break;
                 case "3":
                     System.out.println("Edit employee");
-                    employeeService.EditEmployee();
+                    employeeService.edit();
                     break;
                 case "4":
                     System.out.println("Return main menu");
@@ -103,12 +108,15 @@ public class FuramaController {
             switch (choose) {
                 case "1":
                     System.out.println("Display list customers");
+                    customerService.display();
                     break;
                 case "2":
                     System.out.println("Add new customer");
+                    customerService.add();
                     break;
                 case "3":
                     System.out.println("Edit customer");
+                    customerService.edit();
                     break;
                 case "4":
                     System.out.println("Return main menu");
@@ -119,6 +127,7 @@ public class FuramaController {
             }
         } while (flag);
     }
+
     public static void displayFacilityManagement() {
         boolean flag;
         do {
@@ -150,6 +159,7 @@ public class FuramaController {
             }
         } while (flag);
     }
+
     public static void displayBookingManagement() {
         boolean flag;
         do {
@@ -189,6 +199,7 @@ public class FuramaController {
             }
         } while (flag);
     }
+
     public static void displayPromotionManagement() {
         boolean flag;
         do {

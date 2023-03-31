@@ -8,7 +8,7 @@ public class Customer extends Person{
     public Customer() {
     }
 
-    public Customer(String name, String birthOfDay, String gender, double citizenIdentification, double phoneNumber, String email, int customerCode, String customerType, String address) {
+    public Customer(String name, String birthOfDay, String gender, String citizenIdentification, String phoneNumber, String email, int customerCode, String customerType, String address) {
         super(name, birthOfDay, gender, citizenIdentification, phoneNumber, email);
         this.customerCode = customerCode;
         this.customerType = customerType;
@@ -45,20 +45,20 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer{" +
-                "CustomerCode='" + customerCode + '\'' +
+                "customerCode=" + customerCode +
+                ", customerType='" + customerType + '\'' +
+                ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
                 ", birthOfDay='" + birthOfDay + '\'' +
                 ", gender='" + gender + '\'' +
                 ", citizenIdentification='" + citizenIdentification + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", customerType='" + customerType + '\'' +
-                ", address='" + address + '\'' +
                 '}';
     }
 
     @Override
     public String getInfoToCSV() {
-        return super.getInfoToCSV();
+        return name+","+birthOfDay+","+gender+","+citizenIdentification+","+phoneNumber+","+email+","+customerCode+","+customerType+","+address;
     }
 }

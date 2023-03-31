@@ -40,13 +40,13 @@ public class FuramaData {
         String result = "";
         boolean flag;
         do {
-            flag = true;
-            System.out.print("Lựa chọn vị trí nhân viên" +
-                    "1.\tTrung Cấp" +
-                    "2.\tCao Đẳng" +
-                    "3.\tĐại Học" +
-                    "4.\tSau Đại Học" +
-                    "Nhập lựa chọn");
+            flag = false;
+            System.out.print("Lựa chọn vị trí nhân viên\n" +
+                    "1.\tTrung Cấp\n" +
+                    "2.\tCao Đẳng\n" +
+                    "3.\tĐại Học\n" +
+                    "4.\tSau Đại Học\n" +
+                    "Nhập lựa chọn: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
@@ -67,7 +67,7 @@ public class FuramaData {
                     break;
                 default:
                     System.out.println("Nhập sai,mời nhập lại");
-                    flag = false;
+                    flag = true;
             }
         }
         while (flag);
@@ -78,15 +78,15 @@ public class FuramaData {
         String result = "";
         boolean flag;
         do {
-            flag = true;
-            System.out.print("Lựa chọn vị trí nhân viên" +
-                    "1.\tLễ tân" +
-                    "2.\tPhục vụ" +
-                    "3.\tChuyên viên" +
-                    "4.\tGiám sát" +
-                    "5.\tQuản lý" +
-                    "6.\tGiám đốc" +
-                    "Nhập lựa chọn");
+            flag = false;
+            System.out.print("Lựa chọn vị trí nhân viên\n" +
+                    "1.\tLễ tân\n" +
+                    "2.\tPhục vụ\n" +
+                    "3.\tChuyên viên\n" +
+                    "4.\tGiám sát\n" +
+                    "5.\tQuản lý\n" +
+                    "6.\tGiám đốc\n" +
+                    "Nhập lựa chọn: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
@@ -115,7 +115,7 @@ public class FuramaData {
                     break;
                 default:
                     System.out.println("Nhập sai,mời nhập lại");
-                    flag = false;
+                    flag = true;
             }
         }
         while (flag);
@@ -126,13 +126,14 @@ public class FuramaData {
         String result = "";
         boolean flag;
         do {
-            flag = true;
-            System.out.print("Lựa chọn vị trí nhân viên" +
-                    "1.\tDiamond" +
-                    "2.\tPlatinium" +
-                    "3.\tSilver" +
-                    "4.\tMember" +
-                    "Nhập lựa chọn");
+            flag = false;
+            System.out.print("Lựa chọn vị trí nhân viên\n" +
+                    "1.\tDiamond\n" +
+                    "2.\tPlatinium\n" +
+                    "3.\tGold\n" +
+                    "4.\tSilver\n" +
+                    "5.\tMember\n" +
+                    "Nhập lựa chọn: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
@@ -144,16 +145,20 @@ public class FuramaData {
                     result = typeCustomerList.get(1);
                     break;
                 case "3":
-                    System.out.println("Silver");
+                    System.out.println("Gold");
                     result = typeCustomerList.get(2);
                     break;
                 case "4":
-                    System.out.println("Member");
+                    System.out.println("Silver");
                     result = typeCustomerList.get(3);
+                    break;
+                case "5":
+                    System.out.println("Member");
+                    result = typeCustomerList.get(4);
                     break;
                 default:
                     System.out.println("Nhập sai,mời nhập lại");
-                    flag = false;
+                    flag = true;
             }
         }
         while (flag);
