@@ -69,13 +69,13 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public void display() {
         LinkedList<Customer> customerList1 = customerRepository.display();
-        if (!customerList1.isEmpty()) {
-            for (Customer customer: customerList1
+        if (customerList1==null) {
+            System.out.println("There are no customer in the list");
+        } else {
+            for (Customer customer : customerList1
             ) {
                 System.out.println(customer);
             }
-        } else {
-            System.out.println("There are no customer in the list");
         }
     }
 
