@@ -1,21 +1,38 @@
 package case_study.model;
 
+import java.util.Objects;
+
 public abstract class Facility {
+    protected String idService;
     protected String serviceName;
-    protected float UsableAre;
-    protected double rentalCosts;
+    protected float usableAre;
+    protected int rentalCosts;
     protected int maximumNumberOfPeople;
-    protected String rentaltype;
+    protected String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, float usableAre, double rentalCosts, int maximumNumberOfPeople, String rentaltype) {
+    public Facility(String idService, String serviceName, float usableAre, int rentalCosts, int maximumNumberOfPeople, String rentalType) {
+        this.idService = idService;
         this.serviceName = serviceName;
-        this.UsableAre = usableAre;
+        this.usableAre = usableAre;
         this.rentalCosts = rentalCosts;
         this.maximumNumberOfPeople = maximumNumberOfPeople;
-        this.rentaltype = rentaltype;
+        this.rentalType = rentalType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Facility facility = (Facility) o;
+        return Objects.equals(idService, facility.idService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idService);
     }
 
     public String getServiceName() {
@@ -27,18 +44,18 @@ public abstract class Facility {
     }
 
     public float getUsableAre() {
-        return UsableAre;
+        return usableAre;
     }
 
     public void setUsableAre(float usableAre) {
-        UsableAre = usableAre;
+        usableAre = usableAre;
     }
 
     public double getRentalCosts() {
         return rentalCosts;
     }
 
-    public void setRentalCosts(double rentalCosts) {
+    public void setRentalCosts(int rentalCosts) {
         this.rentalCosts = rentalCosts;
     }
 
@@ -50,22 +67,35 @@ public abstract class Facility {
         this.maximumNumberOfPeople = maximumNumberOfPeople;
     }
 
+    public String getIdService() {
+        return idService;
+    }
+
+    public void setIdService(String idService) {
+        this.idService = idService;
+    }
+
     public String getRentaltype() {
-        return rentaltype;
+        return rentalType;
     }
 
     public void setRentaltype(String rentaltype) {
-        this.rentaltype = rentaltype;
+        this.rentalType = rentaltype;
     }
 
     @Override
     public String toString() {
         return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
-                ", UsableAre=" + UsableAre +
+                "idService='" + idService + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", UsableAre=" + usableAre +
                 ", rentalCosts=" + rentalCosts +
                 ", maximumNumberOfPeople=" + maximumNumberOfPeople +
-                ", rentaltype='" + rentaltype + '\'' +
+                ", rentaltype='" + rentalType + '\'' +
                 '}';
+    }
+
+    public String getToStringCSV() {
+        return idService + "," + serviceName + "," + usableAre + "," + rentalCosts + "," + maximumNumberOfPeople + "," + rentalType;
     }
 }

@@ -1,4 +1,4 @@
-package case_study.data;
+package case_study.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,21 +9,21 @@ public class FuramaData {
     static List<String> levelList = new ArrayList<>();
 
     static {
-        levelList.add("Trung Cấp");
-        levelList.add("Cao Đẳng");
-        levelList.add("Đại Học");
-        levelList.add("Sau Đại Học");
+        levelList.add("Intermediate");
+        levelList.add("College");
+        levelList.add("University");
+        levelList.add("After university");
     }
 
     static List<String> positionList = new ArrayList<>();
 
     static {
-        positionList.add("Lễ tân");
-        positionList.add("Phục vụ");
-        positionList.add("Chuyên viên");
-        positionList.add("Giám sát");
-        positionList.add("Quản lý");
-        positionList.add("Giám đốc");
+        positionList.add("Receptionist");
+        positionList.add("Serve");
+        positionList.add("Expert");
+        positionList.add("Monitor");
+        positionList.add("Manager");
+        positionList.add("Director");
     }
 
     static List<String> typeCustomerList = new ArrayList<>();
@@ -41,32 +41,32 @@ public class FuramaData {
         boolean flag;
         do {
             flag = false;
-            System.out.print("Lựa chọn vị trí nhân viên\n" +
-                    "1.\tTrung Cấp\n" +
-                    "2.\tCao Đẳng\n" +
-                    "3.\tĐại Học\n" +
-                    "4.\tSau Đại Học\n" +
-                    "Nhập lựa chọn: ");
+            System.out.print("Select employee position\n" +
+                    "1.\tIntermediate\n" +
+                    "2.\tCollege\n" +
+                    "3.\tUniversity\n" +
+                    "4.\tAfter university\n" +
+                    "Enter selection: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
-                    System.out.println("Trung Cấp");
+                    System.out.println("Intermediate");
                     result = levelList.get(0);
                     break;
                 case "2":
-                    System.out.println("Cao Đẳng");
+                    System.out.println("College");
                     result = levelList.get(1);
                     break;
                 case "3":
-                    System.out.println("Đại Học");
+                    System.out.println("University");
                     result = levelList.get(2);
                     break;
                 case "4":
-                    System.out.println("Sau Đại Học");
+                    System.out.println("After university");
                     result = levelList.get(3);
                     break;
                 default:
-                    System.out.println("Nhập sai,mời nhập lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
                     flag = true;
             }
         }
@@ -79,42 +79,42 @@ public class FuramaData {
         boolean flag;
         do {
             flag = false;
-            System.out.print("Lựa chọn vị trí nhân viên\n" +
-                    "1.\tLễ tân\n" +
-                    "2.\tPhục vụ\n" +
-                    "3.\tChuyên viên\n" +
-                    "4.\tGiám sát\n" +
-                    "5.\tQuản lý\n" +
+            System.out.print("Choose position employee\n" +
+                    "1.\tReceptionist\n" +
+                    "2.\tServe\n" +
+                    "3.\tExpert\n" +
+                    "4.\tMonitor\n" +
+                    "5.\tManage\n" +
                     "6.\tGiám đốc\n" +
-                    "Nhập lựa chọn: ");
+                    "Enter selection: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
-                    System.out.println("Lễ tân");
+                    System.out.println("Receptionist");
                     result = positionList.get(0);
                     break;
                 case "2":
-                    System.out.println("Phục vụ");
+                    System.out.println("Serve");
                     result = positionList.get(1);
                     break;
                 case "3":
-                    System.out.println("Chuyên viên");
+                    System.out.println("Expert");
                     result = positionList.get(2);
                     break;
                 case "4":
-                    System.out.println("Giám sát");
+                    System.out.println("Monitor");
                     result = positionList.get(3);
                     break;
                 case "5":
-                    System.out.println("Quản lý");
+                    System.out.println("Manager");
                     result = positionList.get(4);
                     break;
                 case "6":
-                    System.out.println("Giám đốc");
+                    System.out.println("Director");
                     result = positionList.get(5);
                     break;
                 default:
-                    System.out.println("Nhập sai,mời nhập lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
                     flag = true;
             }
         }
@@ -127,13 +127,13 @@ public class FuramaData {
         boolean flag;
         do {
             flag = false;
-            System.out.print("Lựa chọn vị trí nhân viên\n" +
+            System.out.print("Choose customer type:\n" +
                     "1.\tDiamond\n" +
                     "2.\tPlatinium\n" +
                     "3.\tGold\n" +
                     "4.\tSilver\n" +
                     "5.\tMember\n" +
-                    "Nhập lựa chọn: ");
+                    "Enter selection: ");
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
@@ -157,7 +157,7 @@ public class FuramaData {
                     result = typeCustomerList.get(4);
                     break;
                 default:
-                    System.out.println("Nhập sai,mời nhập lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
                     flag = true;
             }
         }

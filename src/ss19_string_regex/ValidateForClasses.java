@@ -22,7 +22,6 @@ public class ValidateForClasses {
 
     public static boolean checkNameClass(String name) {
         String reGex = "^[CAP][0-9]{4}[GHIK]$";
-        boolean check = name.matches(reGex);
-        return check;
+        return name.matches(reGex);
     }
 }

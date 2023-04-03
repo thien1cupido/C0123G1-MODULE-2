@@ -1,14 +1,15 @@
 package case_study.model;
 
-public class House extends Facility{
+public class House extends Facility {
     private String roomStandard;
     private int numberOfFloors;
 
     public House() {
     }
 
-    public House(String serviceName, float usableAre, double rentalCosts, int maximumNumberOfPeople, String rentaltype, String roomStandard, int numberOfFloors) {
-        super(serviceName, usableAre, rentalCosts, maximumNumberOfPeople, rentaltype);
+
+    public House(String idService, String serviceName, float usableAre, int rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int numberOfFloors) {
+        super(idService, serviceName, usableAre, rentalCosts, maximumNumberOfPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;
     }
@@ -32,13 +33,19 @@ public class House extends Facility{
     @Override
     public String toString() {
         return "House{" +
-                "serviceName='" + serviceName + '\'' +
-                ", UsableAre=" + UsableAre +
-                ", rentalCosts=" + rentalCosts +
-                ", maximumNumberOfPeople=" + maximumNumberOfPeople +
-                ", rentaltype='" + rentaltype + '\'' +
+                "idService='" + idService + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", UsableAre=" + usableAre + "m2" + '\'' +
+                ", rentalCosts=" + rentalCosts + " người" + '\'' +
+                ", maximumNumberOfPeople=" + maximumNumberOfPeople + " người" + '\'' +
+                ", rentaltype='" + rentalType + '\'' +
                 ", roomStandard='" + roomStandard + '\'' +
-                ", numberOfFloors='" + numberOfFloors + '\'' +
+                ", numberOfFloors='" + "tầng " + numberOfFloors + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getToStringCSV() {
+        return idService + "," + serviceName + "," + usableAre + "," + rentalCosts + "," + maximumNumberOfPeople + "," + rentalType + "," + roomStandard + "," + numberOfFloors;
     }
 }

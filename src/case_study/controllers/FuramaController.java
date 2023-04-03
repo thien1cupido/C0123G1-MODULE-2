@@ -2,8 +2,11 @@ package case_study.controllers;
 
 import case_study.service.ICustomerService;
 import case_study.service.IEmployeeService;
+import case_study.service.IFacilityService;
 import case_study.service.impl.CustomerServiceImpl;
 import case_study.service.impl.EmployeeServiceImpl;
+import case_study.service.impl.FacilityServiceImpl;
+
 
 import java.util.Scanner;
 
@@ -11,20 +14,21 @@ public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
     static IEmployeeService employeeService = new EmployeeServiceImpl();
     static ICustomerService customerService = new CustomerServiceImpl();
+    static IFacilityService facilityService = new FacilityServiceImpl();
     static String choose;
 
     public static void displayMainMenu() {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
                     "3.\tFacility Management\n" +
                     "4.\tBooking Management\n" +
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n" +
-                    "Nhập lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
@@ -49,11 +53,11 @@ public class FuramaController {
                     displayPromotionManagement();
                     break;
                 case "6":
-                    System.out.println("Thoát");
+                    System.out.println("Exit");
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
@@ -62,12 +66,12 @@ public class FuramaController {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tDisplay list employees\n" +
                     "2.\tAdd new employee\n" +
                     "3.\tEdit employee\n" +
                     "4.\tReturn main menu\n" +
-                    "Nhâp lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
@@ -88,7 +92,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
@@ -97,12 +101,12 @@ public class FuramaController {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tDisplay list customers\n" +
                     "2.\tAdd new customer\n" +
                     "3.\tEdit customer\n" +
                     "4.\tReturn main menu\n" +
-                    "Nhâp lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
@@ -123,7 +127,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
@@ -132,20 +136,22 @@ public class FuramaController {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tDisplay list facility\n" +
                     "2.\tAdd new facility\n" +
                     "3.\tDisplay list facility maintenance\n" +
                     "4.\tReturn main menu\n" +
-                    "Nhâp lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
                 case "1":
                     System.out.println("Display list facility");
+                    facilityService.display();
                     break;
                 case "2":
                     System.out.println("Add new facility");
+                    facilityService.add();
                     break;
                 case "3":
                     System.out.println("Display list facility maintenance");
@@ -155,7 +161,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
@@ -164,14 +170,14 @@ public class FuramaController {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tAdd new booking\n" +
                     "2.\tDisplay list booking\n" +
                     "3.\tCreate new contract\n" +
                     "4.\tDisplay list contracts\n" +
                     "5.\tEdit contracts\n" +
                     "6.\tReturn main menu\n" +
-                    "Nhâp lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
@@ -195,7 +201,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
@@ -204,11 +210,11 @@ public class FuramaController {
         boolean flag;
         do {
             flag = true;
-            System.out.print("Lựa chọn các chức năng:\n" +
+            System.out.print("Selection of functions\n" +
                     "1.\tDisplay list customers use service\n" +
                     "2.\tDisplay list customers get voucher\n" +
                     "3.\tReturn main menu\n" +
-                    "Nhâp lựa chọn: ");
+                    "Enter the choice: ");
             choose = scanner.nextLine();
             System.out.print("\n");
             switch (choose) {
@@ -223,7 +229,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Vui lòng chọn lại");
+                    System.out.println("Enter the wrong choice, please re-enter!");
             }
         } while (flag);
     }
