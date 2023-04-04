@@ -11,9 +11,9 @@ import java.util.List;
 public class EmployeeRepositoryImpl implements IEmployeeRepository {
     private static final String PATH_FILE = "src\\case_study\\data\\employee_data.csv";
 
-
     @Override
     public void add(Employee employee) {
+        display();
         String stringSplit = employee.getInfoToCSV();
         ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, true);
     }
@@ -34,11 +34,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public void edit(int i, List<Employee> employeeList) {
         Employee employee = employeeList.get(i);
         String stringSplit = employee.getInfoToCSV();
-        if (i == 0) {
-            ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, false);
-        } else {
-            ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, true);
-        }
+        ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, i != 0);
     }
 }
 

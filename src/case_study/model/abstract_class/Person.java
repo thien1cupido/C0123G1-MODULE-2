@@ -1,4 +1,4 @@
-package case_study.model;
+package case_study.model.abstract_class;
 
 public abstract class Person {
     protected String name;

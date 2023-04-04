@@ -1,14 +1,19 @@
 package case_study.service;
 
-public interface IFacilityService extends IService {
-    @Override
+
+import case_study.model.abstract_class.Facility;
+
+import java.util.LinkedHashMap;
+
+public interface IFacilityService {
+
     void add();
 
-    @Override
     void display();
 
-    @Override
-    void edit();
+    void edit(String idService);
+
+    LinkedHashMap<Facility, Integer> read();
 
     void displaylistFacilityMaintenance();
 }

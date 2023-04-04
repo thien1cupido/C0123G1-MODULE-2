@@ -1,6 +1,8 @@
 package case_study.model;
 
-public class Customer extends Person{
+import case_study.model.abstract_class.Person;
+
+public class Customer extends Person {
     protected int customerCode;
     private String customerType;
     private String address;

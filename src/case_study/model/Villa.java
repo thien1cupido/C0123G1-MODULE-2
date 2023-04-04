@@ -1,5 +1,7 @@
 package case_study.model;
 
+import case_study.model.abstract_class.Facility;
+
 public class Villa extends Facility {
     private String standardRoom;
     private float swimmingPoolArea;
@@ -45,11 +47,11 @@ public class Villa extends Facility {
                 "IdService= '" + idService + '\'' +
                 ", serviceName= '" + serviceName + '\'' +
                 ", standardRoom= '" + standardRoom + '\'' +
-                ", swimmingPoolArea= '" + swimmingPoolArea + " m2" + '\'' +
-                ", numberRoom= '" + "tầng " + numberFloors + '\'' +
-                ", usableAre= '" + usableAre + " m2" + '\'' +
-                ", rentalCosts= '" + rentalCosts + " triệu" + '\'' +
-                ", maximumNumberOfPeople= '" + maximumNumberOfPeople + " người" + '\'' +
+                ", swimmingPoolArea= '" + swimmingPoolArea  + '\'' +
+                ", numberRoom= '" + numberFloors + '\'' +
+                ", usableAre= '" + usableAre  + '\'' +
+                ", rentalCosts= '" + rentalCosts  + '\'' +
+                ", maximumNumberOfPeople= '" + maximumNumberOfPeople + '\'' +
                 ", rentalType= '" + rentalType + '\'' +
                 '}';
     }

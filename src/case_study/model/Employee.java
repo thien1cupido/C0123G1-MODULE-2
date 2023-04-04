@@ -1,5 +1,7 @@
 package case_study.model;
 
+import case_study.model.abstract_class.Person;
+
 public class Employee extends Person {
     private int employeeCode;
     private String level;

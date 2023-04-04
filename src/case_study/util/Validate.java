@@ -16,7 +16,7 @@ public class Validate {
     private String regexRentalType = "^\\d{1,}$";
     private String regexStandardRoom = "^[A-Z][a-z]{1,}$";
     private String regexSwimmingPoolArea = "^[1-9]{1,}(\\.\\d{1,2})?$";
-    private String regexBirthOfDay= "^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19((2[4-9])||([3-9][0-9])))||200[0-5])$";
+    private String regexBirthOfDay = "^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19((2[4-9])||([3-9][0-9])))||200[0-5])$";
 
     static List<String> rentalTypeList = new ArrayList<>();
 
@@ -89,7 +89,8 @@ public class Validate {
         } else {
             do {
                 flag = true;
-                System.out.print("Re-enter : ");
+                System.out.println("Enter the wrong format, please re-enter!");
+                System.out.print("Re-enter:");
                 nhapLai = scanner.nextLine();
                 if (nhapLai.matches(regex)) {
                     flag = false;
@@ -142,7 +143,7 @@ public class Validate {
                     result = rentalType4 + " " + rentalTypeList.get(3);
                     break;
                 default:
-                    System.out.print("Enter the wrong, please re-enter! ");
+                    System.out.print("Enter the wrong selection, please re-enter! ");
                     flag = true;
             }
         }

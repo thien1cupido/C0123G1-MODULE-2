@@ -1,5 +1,7 @@
 package case_study.model;
 
+import case_study.model.abstract_class.Facility;
+
 public class Room extends Facility {
     private String freeServiceInclude;
 
@@ -24,9 +26,9 @@ public class Room extends Facility {
         return "Room{" +
                 "IdService='" + idService + '\'' +
                 ", serviceName='" + serviceName + '\'' +
-                ", usableAre=" + usableAre +" m2"+ '\'' +
-                ", rentalCosts=" + rentalCosts +" triệu"+ '\'' +
-                ", maximumNumberOfPeople=" + maximumNumberOfPeople +" người"+ '\'' +
+                ", usableAre=" + usableAre + '\'' +
+                ", rentalCosts=" + rentalCosts + '\'' +
+                ", maximumNumberOfPeople=" + maximumNumberOfPeople + '\'' +
                 ", rentalType='" + rentalType + '\'' +
                 ", freeServiceInclude='" + freeServiceInclude + '\'' +
                 '}';

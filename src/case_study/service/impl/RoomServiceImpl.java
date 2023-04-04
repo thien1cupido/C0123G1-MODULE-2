@@ -1,55 +1,69 @@
 package case_study.service.impl;
 
 import case_study.model.Room;
+import case_study.repository.IRoomRepository;
+import case_study.repository.impl.RoomRepositoryImpl;
 import case_study.service.IRoomService;
 import case_study.util.Validate;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RoomServiceImpl implements IRoomService {
-    static List<Room>roomList=new ArrayList<>();
-    static Validate validate =new Validate();
-    Scanner scanner =new Scanner(System.in);
-    @Override
-    public void add() {
-        System.out.print("Nhập id Room(SVRO-XXXX): ");
-        String idRoom = scanner.nextLine();
-        idRoom = validate.checkRegex(idRoom, validate.getRegexIDRoom());
-        System.out.print("Nhập name Room: ");
-        String nameRoom = scanner.nextLine();
-        nameRoom = validate.checkRegex(nameRoom, validate.getRegexNameService());
-        System.out.print("Nhập diện tích Room: ");
-        String usableAre = scanner.nextLine();
-        usableAre = validate.checkRegex(usableAre, validate.getRegexServiceArea());
-        System.out.print("Nhập giá cho thuê Room: ");
-        String rentalCosts = scanner.nextLine();
-        rentalCosts = validate.checkRegex(rentalCosts, validate.getRegexRentalCost());
-        System.out.print("Nhập số người tối đa trong Room: ");
-        String maximumNumberOfPeople = scanner.nextLine();
-        maximumNumberOfPeople = validate.checkRegex(maximumNumberOfPeople, validate.getRegexNumberMaxPeoples());
-        String rentalType = validate.getRentalType();
-        System.out.print("Nhập dịch vụ miễn phí đi kèm trong Room: ");
-        String freeServiceInclude = scanner.nextLine();
-        roomList.add(new Room(idRoom, nameRoom, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
-                Integer.parseInt(maximumNumberOfPeople), rentalType, freeServiceInclude));
+    static IRoomRepository roomRepository = new RoomRepositoryImpl();
+    static LinkedHashMap<Room, Integer> roomIntegerLinkedHashMap = new LinkedHashMap<>();
+    static Validate validate = new Validate();
+    Scanner scanner = new Scanner(System.in);
+
+    static {
+        roomIntegerLinkedHashMap = roomRepository.display();
     }
 
     @Override
-    public void display() {
-        if (!roomList.isEmpty()){
-            for (Room r:roomList
-                 ) {
-                System.out.println(r);
+    public void addRoom() {
+        boolean flag;
+        do {
+            String idRoom, nameRoom, usableAre, rentalCosts, maximumNumberOfPeople, rentalType, freeServiceInclude;
+            try {
+                flag = false;
+                System.out.print("Enter id room(SVRO-XXXX): ");
+                idRoom = scanner.nextLine();
+                idRoom = validate.checkRegex(idRoom, validate.getRegexIDRoom());
+                System.out.print("Enter name service room: ");
+                nameRoom = scanner.nextLine();
+                nameRoom = validate.checkRegex(nameRoom, validate.getRegexNameService());
+                System.out.print("Enter room area: ");
+                usableAre = scanner.nextLine();
+                usableAre = validate.checkRegex(usableAre, validate.getRegexServiceArea());
+                System.out.print("Enter rental costs room: ");
+                rentalCosts = scanner.nextLine();
+                rentalCosts = validate.checkRegex(rentalCosts, validate.getRegexRentalCost());
+                System.out.print("Enter maximum number of peoples in room: ");
+                maximumNumberOfPeople = scanner.nextLine();
+                maximumNumberOfPeople = validate.checkRegex(maximumNumberOfPeople, validate.getRegexNumberMaxPeoples());
+                rentalType = validate.getRentalType();
+                System.out.print("Enter the free service included in room: ");
+                freeServiceInclude = scanner.nextLine();
+                roomRepository.add(new Room(idRoom, nameRoom, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
+                        Integer.parseInt(maximumNumberOfPeople), rentalType, freeServiceInclude), 0);
+            } catch (NumberFormatException e) {
+                System.out.println("Enter the wrong format, please re-enter!");
+                flag = true;
             }
-        }else {
-            System.out.println("Không còn phòng");
+        } while (flag);
+    }
+
+    public void displayRoom() {
+        Set<Room> villaSet = roomIntegerLinkedHashMap.keySet();
+        if (roomIntegerLinkedHashMap != null) {
+            for (Room room : villaSet) {
+                System.out.println(room+" value: "+roomIntegerLinkedHashMap.get(room));
+            }
+        } else {
+            System.out.println("There are no more rooms in the list");
         }
     }
 
-    @Override
-    public void edit() {
 
+    public void edit() {
     }
 }

@@ -1,5 +1,7 @@
 package case_study.model;
 
+import case_study.model.abstract_class.Facility;
+
 public class House extends Facility {
     private String roomStandard;
     private int numberOfFloors;
@@ -35,12 +37,12 @@ public class House extends Facility {
         return "House{" +
                 "idService='" + idService + '\'' +
                 ", serviceName='" + serviceName + '\'' +
-                ", UsableAre=" + usableAre + "m2" + '\'' +
-                ", rentalCosts=" + rentalCosts + " người" + '\'' +
-                ", maximumNumberOfPeople=" + maximumNumberOfPeople + " người" + '\'' +
+                ", UsableAre=" + usableAre  + '\'' +
+                ", rentalCosts=" + rentalCosts  + '\'' +
+                ", maximumNumberOfPeople=" + maximumNumberOfPeople  + '\'' +
                 ", rentaltype='" + rentalType + '\'' +
                 ", roomStandard='" + roomStandard + '\'' +
-                ", numberOfFloors='" + "tầng " + numberOfFloors + '\'' +
+                ", numberOfFloors='" + numberOfFloors + '\'' +
                 '}';
     }
 

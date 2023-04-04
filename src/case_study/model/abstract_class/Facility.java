@@ -1,6 +1,5 @@
-package case_study.model;
+package case_study.model.abstract_class;
 
-import java.util.Objects;
 
 public abstract class Facility {
     protected String idService;
@@ -20,19 +19,6 @@ public abstract class Facility {
         this.rentalCosts = rentalCosts;
         this.maximumNumberOfPeople = maximumNumberOfPeople;
         this.rentalType = rentalType;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Facility facility = (Facility) o;
-        return Objects.equals(idService, facility.idService);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idService);
     }
 
     public String getServiceName() {

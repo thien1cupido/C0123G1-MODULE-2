@@ -1,6 +1,6 @@
 package case_study.model;
 
-public class Contract extends Booking{
+public class Contract {
     private int contractNumber;
     private String advanceDepositAmount;
     private String totalPaymentAmount;
@@ -8,8 +8,7 @@ public class Contract extends Booking{
     public Contract() {
     }
 
-    public Contract(int customerCode, int bookingCode, int contractNumber, String advanceDepositAmount, String totalPaymentAmount) {
-        super(customerCode, bookingCode);
+    public Contract(int contractNumber, String advanceDepositAmount, String totalPaymentAmount) {
         this.contractNumber = contractNumber;
         this.advanceDepositAmount = advanceDepositAmount;
         this.totalPaymentAmount = totalPaymentAmount;
@@ -37,5 +36,14 @@ public class Contract extends Booking{
 
     public void setTotalPaymentAmount(String totalPaymentAmount) {
         this.totalPaymentAmount = totalPaymentAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "contractNumber=" + contractNumber +
+                ", advanceDepositAmount='" + advanceDepositAmount + '\'' +
+                ", totalPaymentAmount='" + totalPaymentAmount + '\'' +
+                '}';
     }
 }

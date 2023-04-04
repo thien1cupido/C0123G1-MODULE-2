@@ -155,6 +155,7 @@ public class FuramaController {
                     break;
                 case "3":
                     System.out.println("Display list facility maintenance");
+                    facilityService.displaylistFacilityMaintenance();
                     break;
                 case "4":
                     System.out.println("Return main menu");

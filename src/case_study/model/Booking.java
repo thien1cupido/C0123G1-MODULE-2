@@ -1,26 +1,23 @@
 package case_study.model;
 
-public class Booking extends Customer {
+public class Booking {
     protected int bookingCode;
-    private String startDate;
-    private String endDate;
+    private String startDay;
+    private String endDay;
+    private int idCustomer;
     private String serviceName;
     private String serviceType;
 
     public Booking() {
     }
 
-    public Booking(int customerCode, int bookingCode, String startDate, String endDate, String serviceName, String serviceType) {
-        super(customerCode);
+    public Booking(int bookingCode, String startDate, String endDate, int idCustomer, String serviceName, String serviceType) {
         this.bookingCode = bookingCode;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.startDay = startDate;
+        this.endDay = endDate;
+        this.idCustomer = idCustomer;
         this.serviceName = serviceName;
         this.serviceType = serviceType;
-    }
-    public Booking(int customerCode,int bookingCode){
-        super(customerCode);
-        this.bookingCode = bookingCode;
     }
 
     public int getBookingCode() {
@@ -31,20 +28,20 @@ public class Booking extends Customer {
         this.bookingCode = bookingCode;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getStartDay() {
+        return startDay;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setStartDay(String startDay) {
+        this.startDay = startDay;
     }
 
-    public String getEndDate() {
-        return endDate;
+    public String getEndDay() {
+        return endDay;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setEndDay(String endDay) {
+        this.endDay = endDay;
     }
 
     public String getServiceName() {
@@ -61,5 +58,17 @@ public class Booking extends Customer {
 
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingCode=" + bookingCode +
+                ", startDate='" + startDay + '\'' +
+                ", endDay='" + endDay + '\'' +
+                ", idService='" + idCustomer + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", serviceType='" + serviceType + '\'' +
+                '}';
     }
 }
