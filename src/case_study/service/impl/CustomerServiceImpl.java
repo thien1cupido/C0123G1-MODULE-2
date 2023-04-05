@@ -52,8 +52,10 @@ public class CustomerServiceImpl implements ICustomerService {
                     String customerType = scanner.nextLine();
                     System.out.print("Enter aderess customer: ");
                     String address = scanner.nextLine();
-                    customerRepository.add(new Customer(name, birthOfDay, gender, citizenIdentification, phoneNumber,
-                            email, customerCode, customerType, address));
+                    Customer customer =new Customer(name, birthOfDay, gender, citizenIdentification, phoneNumber,
+                            email, customerCode, customerType, address);
+                    customerRepository.add(customer);
+                    customerList.add(customer);
                     System.out.println("More susscess");
                     break;
                 }
@@ -66,7 +68,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void display() {
-        if (customerList == null) {
+        if (customerList.isEmpty()) {
             System.out.println("There are no customer in the list");
         } else {
             for (Customer customer : customerList

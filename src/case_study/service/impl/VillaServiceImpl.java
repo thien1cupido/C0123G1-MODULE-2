@@ -47,6 +47,7 @@ public class VillaServiceImpl implements IVillaService {
         numberOfFloors = validate.checkRegex(numberOfFloors, validate.getRegexNumberOfFloors());
         iVillaRepository.add(new Villa(idVilla, nameVilla, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
                 Integer.parseInt(maximumNumberOfPeople), rentalType, roomStandard, Float.parseFloat(swimmingPoolArea), Integer.parseInt(numberOfFloors)), 0);
+        System.out.println("more success");
     }
 
     @Override

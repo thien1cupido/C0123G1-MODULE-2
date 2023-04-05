@@ -11,7 +11,7 @@ public interface IFacilityService {
 
     void display();
 
-    void edit(String idService);
+    void increaseThenBooking(String idService,String nameService);
 
     LinkedHashMap<Facility, Integer> read();
 

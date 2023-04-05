@@ -13,7 +13,6 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
 
     @Override
     public void add(Employee employee) {
-        display();
         String stringSplit = employee.getInfoToCSV();
         ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, true);
     }

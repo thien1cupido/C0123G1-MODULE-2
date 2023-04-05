@@ -20,43 +20,35 @@ public class RoomServiceImpl implements IRoomService {
 
     @Override
     public void addRoom() {
-        boolean flag;
-        do {
-            String idRoom, nameRoom, usableAre, rentalCosts, maximumNumberOfPeople, rentalType, freeServiceInclude;
-            try {
-                flag = false;
-                System.out.print("Enter id room(SVRO-XXXX): ");
-                idRoom = scanner.nextLine();
-                idRoom = validate.checkRegex(idRoom, validate.getRegexIDRoom());
-                System.out.print("Enter name service room: ");
-                nameRoom = scanner.nextLine();
-                nameRoom = validate.checkRegex(nameRoom, validate.getRegexNameService());
-                System.out.print("Enter room area: ");
-                usableAre = scanner.nextLine();
-                usableAre = validate.checkRegex(usableAre, validate.getRegexServiceArea());
-                System.out.print("Enter rental costs room: ");
-                rentalCosts = scanner.nextLine();
-                rentalCosts = validate.checkRegex(rentalCosts, validate.getRegexRentalCost());
-                System.out.print("Enter maximum number of peoples in room: ");
-                maximumNumberOfPeople = scanner.nextLine();
-                maximumNumberOfPeople = validate.checkRegex(maximumNumberOfPeople, validate.getRegexNumberMaxPeoples());
-                rentalType = validate.getRentalType();
-                System.out.print("Enter the free service included in room: ");
-                freeServiceInclude = scanner.nextLine();
-                roomRepository.add(new Room(idRoom, nameRoom, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
-                        Integer.parseInt(maximumNumberOfPeople), rentalType, freeServiceInclude), 0);
-            } catch (NumberFormatException e) {
-                System.out.println("Enter the wrong format, please re-enter!");
-                flag = true;
-            }
-        } while (flag);
+        String idRoom, nameRoom, usableAre, rentalCosts, maximumNumberOfPeople, rentalType, freeServiceInclude;
+        System.out.print("Enter id room(SVRO-XXXX): ");
+        idRoom = scanner.nextLine();
+        idRoom = validate.checkRegex(idRoom, validate.getRegexIDRoom());
+        System.out.print("Enter name service room: ");
+        nameRoom = scanner.nextLine();
+        nameRoom = validate.checkRegex(nameRoom, validate.getRegexNameService());
+        System.out.print("Enter room area: ");
+        usableAre = scanner.nextLine();
+        usableAre = validate.checkRegex(usableAre, validate.getRegexServiceArea());
+        System.out.print("Enter rental costs room: ");
+        rentalCosts = scanner.nextLine();
+        rentalCosts = validate.checkRegex(rentalCosts, validate.getRegexRentalCost());
+        System.out.print("Enter maximum number of peoples in room: ");
+        maximumNumberOfPeople = scanner.nextLine();
+        maximumNumberOfPeople = validate.checkRegex(maximumNumberOfPeople, validate.getRegexNumberMaxPeoples());
+        rentalType = validate.getRentalType();
+        System.out.print("Enter the free service included in room: ");
+        freeServiceInclude = scanner.nextLine();
+        roomRepository.add(new Room(idRoom, nameRoom, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
+                Integer.parseInt(maximumNumberOfPeople), rentalType, freeServiceInclude), 0);
+        System.out.println("more success");
     }
 
     public void displayRoom() {
         Set<Room> villaSet = roomIntegerLinkedHashMap.keySet();
         if (roomIntegerLinkedHashMap != null) {
             for (Room room : villaSet) {
-                System.out.println(room+" value: "+roomIntegerLinkedHashMap.get(room));
+                System.out.println(room + " value: " + roomIntegerLinkedHashMap.get(room));
             }
         } else {
             System.out.println("There are no more rooms in the list");
@@ -64,6 +56,4 @@ public class RoomServiceImpl implements IRoomService {
     }
 
 
-    public void edit() {
-    }
 }

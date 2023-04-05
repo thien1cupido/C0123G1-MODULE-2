@@ -12,7 +12,6 @@ public class CustommerRepositoryImpl implements ICustommerRepository {
 
     @Override
     public void add(Customer customer) {
-        display();
         String stringSplit = customer.getInfoToCSV();
         ReadAndWrite.writeStringToFile(PATH_FILE, stringSplit, true);
 

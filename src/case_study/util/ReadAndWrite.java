@@ -29,6 +29,30 @@ public class ReadAndWrite {
         }
     }
 
+    public static void writeListToFile(String pathFile, List<String> stringList, boolean append) {
+        File file = new File(pathFile);
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file, append);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            for (String s : stringList) {
+                bufferedWriter.write(s);
+                bufferedWriter.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedWriter.close();
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 
     public static List<String> readFileToListString(String pathFile) {
         List<String> stringList = new ArrayList<>();

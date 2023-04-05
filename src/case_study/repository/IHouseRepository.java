@@ -8,4 +8,5 @@ public interface IHouseRepository {
     void add(House house, Integer integer);
 
     LinkedHashMap<House, Integer> display();
+    void edit(House house,Integer integer);
 }

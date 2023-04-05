@@ -1,6 +1,10 @@
 package case_study.model;
 
-public class Booking {
+import case_study.util.SortStartBooking;
+
+import java.util.Date;
+
+public class Booking implements Comparable<Booking> {
     protected int bookingCode;
     private String startDay;
     private String endDay;
@@ -70,5 +74,32 @@ public class Booking {
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
+    }
+
+    public String getToCSV() {
+        return bookingCode + "," + startDay + "," + endDay + "," + idCustomer + "," + serviceName + "," + serviceType;
+    }
+
+    @Override
+    public int compareTo(Booking booking) {
+        int[] s1 = SortStartBooking.getNumberStartDay(this.startDay);
+        int[] s2 = SortStartBooking.getNumberStartDay(booking.startDay);
+        int[] s3 = SortStartBooking.getNumberStartDay(this.endDay);
+        int[] s4 = SortStartBooking.getNumberStartDay(booking.endDay);
+        int a = SortStartBooking.getReturnInt(s1, s2);
+        int b = SortStartBooking.getReturnInt(s3, s4);
+        if (a == 0) {
+            if (b == 0) {
+                return 0;
+            } else if (b > 0) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else if (a > 0) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

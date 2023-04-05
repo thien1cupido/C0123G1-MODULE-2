@@ -1,11 +1,7 @@
 package case_study.controllers;
 
-import case_study.service.ICustomerService;
-import case_study.service.IEmployeeService;
-import case_study.service.IFacilityService;
-import case_study.service.impl.CustomerServiceImpl;
-import case_study.service.impl.EmployeeServiceImpl;
-import case_study.service.impl.FacilityServiceImpl;
+import case_study.service.*;
+import case_study.service.impl.*;
 
 
 import java.util.Scanner;
@@ -15,6 +11,8 @@ public class FuramaController {
     static IEmployeeService employeeService = new EmployeeServiceImpl();
     static ICustomerService customerService = new CustomerServiceImpl();
     static IFacilityService facilityService = new FacilityServiceImpl();
+    static IBookingService bookingService=new BookingServiceImpl();
+    static IContractService contractService=new ContractServiceImpl();
     static String choose;
 
     public static void displayMainMenu() {
@@ -33,23 +31,23 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Employee Management");
+                    System.out.println("----------------------Employee Management----------------");
                     displayEmployeeManagement();
                     break;
                 case "2":
-                    System.out.println("Customer Management");
+                    System.out.println("----------------------Customer Management-----------------");
                     displayCustomerManagement();
                     break;
                 case "3":
-                    System.out.println("Facility Management");
+                    System.out.println("---------------------Facility Management------------------");
                     displayFacilityManagement();
                     break;
                 case "4":
-                    System.out.println("Booking Management");
+                    System.out.println("----------------------Booking Management-------------------");
                     displayBookingManagement();
                     break;
                 case "5":
-                    System.out.println("Promotion Management");
+                    System.out.println("--------------------Promotion Management-------------------");
                     displayPromotionManagement();
                     break;
                 case "6":
@@ -76,15 +74,15 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Display list employees");
+                    System.out.println("-------------------Display list employees-----------------");
                     employeeService.display();
                     break;
                 case "2":
-                    System.out.println("Add new employee");
+                    System.out.println("-----------------------Add new employee--------------------");
                     employeeService.add();
                     break;
                 case "3":
-                    System.out.println("Edit employee");
+                    System.out.println("------------------------Edit employee----------------------");
                     employeeService.edit();
                     break;
                 case "4":
@@ -111,15 +109,15 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Display list customers");
+                    System.out.println("-----------------Display list customers-----------------");
                     customerService.display();
                     break;
                 case "2":
-                    System.out.println("Add new customer");
+                    System.out.println("----------------------Add new customer-------------------");
                     customerService.add();
                     break;
                 case "3":
-                    System.out.println("Edit customer");
+                    System.out.println("-------------------------Edit customer-------------------");
                     customerService.edit();
                     break;
                 case "4":
@@ -146,15 +144,15 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Display list facility");
+                    System.out.println("-------------------Display list facility------------------");
                     facilityService.display();
                     break;
                 case "2":
-                    System.out.println("Add new facility");
+                    System.out.println("----------------------Add new facility---------------------");
                     facilityService.add();
                     break;
                 case "3":
-                    System.out.println("Display list facility maintenance");
+                    System.out.println("----------------Display list facility maintenance-----------------");
                     facilityService.displaylistFacilityMaintenance();
                     break;
                 case "4":
@@ -183,19 +181,23 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Add new booking");
+                    System.out.println("-----------Add new booking------------");
+                    bookingService.add();
                     break;
                 case "2":
-                    System.out.println("Display list booking");
+                    System.out.println("-----------Display list booking---------");
+                    bookingService.display();
                     break;
                 case "3":
-                    System.out.println("Create new contract");
+                    System.out.println("----------------Create new contract-------------");
+                    contractService.add();
                     break;
                 case "4":
-                    System.out.println("Display list contracts");
+                    System.out.println("-----------------Display list contracts------------");
+                    contractService.display();
                     break;
                 case "5":
-                    System.out.println("Edit contracts");
+                    System.out.println("--------------------Edit contracts----------------");
                     break;
                 case "6":
                     System.out.println("Return main menu");
@@ -220,10 +222,10 @@ public class FuramaController {
             System.out.print("\n");
             switch (choose) {
                 case "1":
-                    System.out.println("Display list customers use service");
+                    System.out.println("------------------Display list customers use service----------------");
                     break;
                 case "2":
-                    System.out.println("Display list customers get voucher");
+                    System.out.println("---------------------Display list customers get voucher---------------");
                     break;
                 case "3":
                     System.out.println("Return main menu");

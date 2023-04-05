@@ -19,12 +19,12 @@ import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService {
     static LinkedHashMap<Facility, Integer> facilityIntegerLinkedHashMap = new LinkedHashMap<>();
-    static IRoomRepository roomRepository = new RoomRepositoryImpl();
-    static IHouseRepository houseRepository = new HouseRepositoryImpl();
-    static IVillaRepository villaRepository = new VillaRepositoryImpl();
-    static IVillaService villaService = new VillaServiceImpl();
-    static IHouseService houseService = new HouseServiceImpl();
-    static IRoomService roomService = new RoomServiceImpl();
+    private final IRoomRepository roomRepository = new RoomRepositoryImpl();
+    private final IHouseRepository houseRepository = new HouseRepositoryImpl();
+    private final IVillaRepository villaRepository = new VillaRepositoryImpl();
+    IVillaService villaService = new VillaServiceImpl();
+    IHouseService houseService = new HouseServiceImpl();
+    IRoomService roomService = new RoomServiceImpl();
     Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -48,6 +48,7 @@ public class FacilityServiceImpl implements IFacilityService {
                 case "2":
                     System.out.println("Add New House");
                     houseService.addHouse();
+
                     break;
                 case "3":
                     System.out.println("Add New Room");
@@ -65,55 +66,76 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
-        read();
-        Set<Facility> facilitySet = facilityIntegerLinkedHashMap.keySet();
-        for (Facility facility : facilitySet) {
-            System.out.println("'"+facility+"' value: "+facilityIntegerLinkedHashMap.get(facility));
-        }
-    }
-
-    @Override
-    public void edit(String idSevice) {
-        LinkedHashMap<Facility,Integer>linkedHashMap=read();
-//       Set<Facility> facilitySet= linkedHashMap.keySet();
-//        for (Facility s:facilitySet) {
-//            if (idSevice.equals(s.getIdService())){
-//                linkedHashMap.
-//            }
-//        }
-        for (int i = 0; i < linkedHashMap.size(); i++) {
-            Facility facility=(Facility) linkedHashMap.keySet().toArray()[i];
-            int value =(int) linkedHashMap.values().toArray()[i];
-            if (facility.getIdService().equals(idSevice)){
-                linkedHashMap.
+        LinkedHashMap<Facility, Integer> facilityLinkedHashMap = read();
+        Set<Facility> facilitySet = facilityLinkedHashMap.keySet();
+        if (facilitySet.size() == 0) {
+            System.out.println("No value");
+        } else {
+            for (Facility facility : facilitySet) {
+                System.out.println("'" + facility + "' value: " + facilityLinkedHashMap.get(facility));
             }
         }
     }
 
     @Override
+    public void increaseThenBooking(String idSevice, String serviceType) {
+        Set<Map.Entry<Villa, Integer>> villaEntry = villaRepository.display().entrySet();
+        Set<Map.Entry<House, Integer>> houseEntry = houseRepository.display().entrySet();
+        Set<Map.Entry<Room, Integer>> roomEntry = roomRepository.display().entrySet();
+        switch (serviceType) {
+            case "Villa":
+                for (Map.Entry<Villa, Integer> m : villaEntry) {
+                    if (m.getKey().getIdService().equals(idSevice)) {
+                        villaRepository.edit(m.getKey(), m.getValue());
+                        break;
+                    }
+                }
+            case "House":
+                for (Map.Entry<House, Integer> h : houseEntry) {
+                    if (h.getKey().getIdService().equals(idSevice)) {
+                        houseRepository.edit(h.getKey(), h.getValue());
+                        break;
+                    }
+                }
+            case "Room":
+                for (Map.Entry<Room, Integer> e : roomEntry) {
+                    if (e.getKey().getIdService().equals(idSevice)) {
+                        roomRepository.edit(e.getKey(), e.getValue());
+                        break;
+                    }
+                }
+        }
+    }
+
+    @Override
     public LinkedHashMap<Facility, Integer> read() {
-        Set<Villa> villaSet = villaRepository.display().keySet();
-        Set<House> houseSet = houseRepository.display().keySet();
-        Set<Room> roomSet = roomRepository.display().keySet();
+        LinkedHashMap<Facility, Integer> facilityIntegerLinkedHashMap1 = new LinkedHashMap<>();
+        LinkedHashMap<Villa, Integer> villaIntegerLinkedHashMap = villaRepository.display();
+        LinkedHashMap<House, Integer> houseIntegerLinkedHashMap = houseRepository.display();
+        LinkedHashMap<Room, Integer> roomIntegerLinkedHashMap = roomRepository.display();
+        Set<Villa> villaSet = villaIntegerLinkedHashMap.keySet();
+        Set<House> houseSet = houseIntegerLinkedHashMap.keySet();
+        Set<Room> roomSet = roomIntegerLinkedHashMap.keySet();
         for (Villa villa : villaSet) {
-            facilityIntegerLinkedHashMap.put(villa, villaRepository.display().get(villa));
+            facilityIntegerLinkedHashMap1.put(villa, villaIntegerLinkedHashMap.get(villa));
         }
         for (House house : houseSet) {
-            facilityIntegerLinkedHashMap.put(house, houseRepository.display().get(house));
+            facilityIntegerLinkedHashMap1.put(house, houseIntegerLinkedHashMap.get(house));
         }
         for (Room room : roomSet) {
-            facilityIntegerLinkedHashMap.put(room, roomRepository.display().get(room));
+            facilityIntegerLinkedHashMap1.put(room, roomIntegerLinkedHashMap.get(room));
         }
-        return facilityIntegerLinkedHashMap;
+        facilityIntegerLinkedHashMap = facilityIntegerLinkedHashMap1;
+        return facilityIntegerLinkedHashMap1;
     }
 
     @Override
     public void displaylistFacilityMaintenance() {
         read();
-        Set<Facility> facilitySet=facilityIntegerLinkedHashMap.keySet();
-        for (Facility facility:facilitySet) {
-            if (facilityIntegerLinkedHashMap.get(facility)>=5){
-                System.out.println(facility.getServiceName()+" need maintenance");
+        Set<Facility> facilitySet = facilityIntegerLinkedHashMap.keySet();
+        for (Facility facility : facilitySet) {
+            if (facilityIntegerLinkedHashMap.get(facility) >= 5) {
+                System.out.println(facility.getServiceName() + " need maintenance");
             }
         }
     }

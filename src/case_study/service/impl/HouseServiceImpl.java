@@ -45,6 +45,7 @@ public class HouseServiceImpl implements IHouseService {
         numberOfFloors = validate.checkRegex(numberOfFloors, validate.getRegexNumberOfFloors());
         houseRepository.add(new House(idHouse, nameHouse, Float.parseFloat(usableAre), Integer.parseInt(rentalCosts),
                 Integer.parseInt(maximumNumberOfPeople), rentalType, roomStandard, Integer.parseInt(numberOfFloors)),0);
+        System.out.println("more success");
     }
 
     @Override

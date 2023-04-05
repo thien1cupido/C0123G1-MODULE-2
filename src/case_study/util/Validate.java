@@ -17,7 +17,7 @@ public class Validate {
     private String regexStandardRoom = "^[A-Z][a-z]{1,}$";
     private String regexSwimmingPoolArea = "^[1-9]{1,}(\\.\\d{1,2})?$";
     private String regexBirthOfDay = "^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19((2[4-9])||([3-9][0-9])))||200[0-5])$";
-
+    private String regexStartAndEnday="^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19([2-9][4-9]))|(20([0-9][0-9])))$";
     static List<String> rentalTypeList = new ArrayList<>();
 
     static {
@@ -26,10 +26,14 @@ public class Validate {
         rentalTypeList.add("day");
         rentalTypeList.add("hour");
     }
-//    public boolean check(String s){
-//        String regexRentalCost = "^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19([2-9][4-9]))|(20([0-4][0-9]|5[0-5])))$";
-//        return s.matches(regexRentalCost);
-//    }
+    public boolean check(String s){
+        String regexRentalCost = "^((0[1-9])|([1-2][0-9])|(3[0-1]))\\/((0[1-9])|(1[0-2]))\\/((19([2-9][4-9]))|(20([0-9][0-9])))$";
+        return s.matches(regexRentalCost);
+    }
+
+    public String getRegexStartAndEnday() {
+        return regexStartAndEnday;
+    }
 
     public String getRegexBirthOfDay() {
         return regexBirthOfDay;
